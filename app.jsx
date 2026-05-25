@@ -15,7 +15,7 @@ const I = {
 const Brand = () => (
   <div className="brand">
     <span className="brand-mark">S</span>
-    <span>spendops</span>
+    <span>SpendOps AI</span>
   </div>
 );
 
@@ -425,7 +425,7 @@ function App() {
         <EndCTA/>
 
         <footer className="foot">
-          <div>© 2026 spendops</div>
+          <div>© 2026 SpendOps AI</div>
           <div className="right">
             <a href="#">privacy</a>
             <a href="#">terms</a>
