@@ -3,29 +3,82 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Your LLM bill is a black box. - SpendOps AI</title>
-<meta property="og:title" content="Your LLM bill is a black box." />
-<meta property="og:description" content="Join 200+ CTOs waiting for the first finance-first AI cost platform." />
-<meta name="twitter:card" content="summary_large_image" />
+
+<!-- ── SEO ─────────────────────────────────────────────────────────── -->
+<title>SpendOps AI - See which feature, team, and customer burns your LLM budget</title>
+<meta name="description" content="Per-feature, per-team, and per-customer cost attribution for OpenAI and Anthropic spend. Slack anomaly alerts, budgets, and a monthly CFO-ready PDF. Built for AI startups spending $5K–$80K/mo on LLM APIs. Join the waitlist." />
+<link rel="canonical" href="https://spendopsai.com/" />
+<meta name="theme-color" content="#ffffff" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="SpendOps AI" />
+<meta property="og:title" content="SpendOps AI - Your LLM bill is a black box. We open it." />
+<meta property="og:description" content="Know what every feature, team, and customer costs across OpenAI and Anthropic. Slack alerts before budgets blow. A monthly PDF your CFO actually reads. Join the waitlist for early access." />
+<meta property="og:url" content="https://spendopsai.com/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="SpendOps AI - Your LLM bill is a black box. We open it." />
+<meta name="twitter:description" content="Per-feature, per-team, and per-customer LLM cost attribution for AI startups. Join the waitlist for early access." />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0a0a'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='17' font-weight='600' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<!-- FAQ rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When does SpendOps AI launch?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Early access opens in roughly four weeks. Waitlist members get in first, about two weeks before public launch." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install an SDK or change my code?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. SpendOps pulls aggregate cost and usage data from your providers' Admin APIs on a schedule. No SDK, no proxy, no code changes, and zero added latency - it is never in your request path." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my API key? Can you see our prompts?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You connect a read-only Admin key, which is encrypted with AES-256-GCM before it is stored, never returned to a browser, and never logged. Admin APIs return token counts and dollar amounts - never prompts, completions, or end-user data. Revoke the key at any time. SOC 2 is on the roadmap as we move upmarket." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it stop runaway spend, or just report it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "At launch, budget alerts fire at 80% and 100% of every limit you set, in Slack and email the same day - so a runaway loop costs you hours, not a month. Hard caps that auto-pause a key at its limit are on the roadmap." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which LLM providers are supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "OpenAI and Anthropic at launch, normalized to USD in one view. Gemini cost ingestion is next on the roadmap, with Azure OpenAI and Bedrock to follow. Tell us your stack in the waitlist form and we'll prioritize it." }
+    },
+    {
+      "@type": "Question",
+      "name": "What will SpendOps AI cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Plans start at $299/month and every plan includes everything - attribution, anomaly alerts, budgets, Slack, and the monthly CFO report. Tiers scale with the spend we track. There is a 14-day free trial with no credit card, and waitlist members get founding-member perks at launch." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from Helicone, Langfuse, or Vantage?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Observability tools like Helicone and Langfuse are built for debugging prompts and traces. Cloud-cost platforms like Vantage are priced and built for enterprises. SpendOps is finance-first at mid-market pricing: per-feature and per-customer dollar attribution, budgets, and a board-ready monthly report - the answers your CFO actually asks for." }
+    }
+  ]
+}
+</script>
 
 <style>
   :root {
     --bg: #ffffff;
-    --bg-soft: #ffffff;
-    --bg-soft-2: #ffffff;
+    --bg-soft: #fafaf9;
     --ink: #0a0a0a;
     --ink-2: #1f2937;
     --ink-3: #525866;
     --ink-4: #8a8f98;
     --line: #e6e6e3;
-    --line-2: #ececea;
     --brand: #2563eb;
     --brand-ink: #1d4ed8;
     --brand-soft: #eef2ff;
@@ -35,6 +88,8 @@
   }
 
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   html, body { margin: 0; padding: 0; }
   body {
     font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
@@ -54,7 +109,7 @@
   }
   @media (max-width: 480px) { .page { padding: 20px 20px 120px; } }
 
-  /* Top bar */
+  /* ── Top bar ── */
   .nav {
     display: flex;
     align-items: center;
@@ -79,7 +134,6 @@
     font-family: 'Geist Mono', monospace;
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: -0.02em;
   }
   .pill {
     display: inline-flex; align-items: center; gap: 8px;
@@ -90,7 +144,6 @@
     color: var(--ink-3);
     background: var(--bg-soft);
     font-family: 'Geist Mono', monospace;
-    letter-spacing: -0.01em;
   }
   .pill .dot {
     width: 6px; height: 6px; border-radius: 50%;
@@ -98,7 +151,7 @@
     box-shadow: 0 0 0 3px rgba(34,197,94,0.18);
   }
 
-  /* Hero */
+  /* ── Hero ── */
   .hero { padding: 0 0 28px; }
   .eyebrow {
     display: inline-flex;
@@ -131,17 +184,13 @@
     line-height: 1.5;
     color: var(--ink-3);
     margin: 0 0 28px;
-    max-width: 540px;
+    max-width: 560px;
     text-wrap: pretty;
   }
   .sub strong { color: var(--ink); font-weight: 600; }
 
-  /* ===== "Missing layer" hero visual ===== */
-  .stack {
-    margin: 0 0 32px;
-    display: grid;
-    gap: 8px;
-  }
+  /* ── "Missing layer" hero visual ── */
+  .stack { margin: 0 0 32px; display: grid; gap: 8px; }
   .stack-row {
     display: flex;
     align-items: center;
@@ -155,10 +204,7 @@
     color: var(--ink-2);
   }
   .stack-row .l { display: flex; align-items: center; gap: 12px; }
-  .stack-row .l .ix {
-    font-size: 11px; color: var(--ink-4);
-    width: 22px; text-align: left;
-  }
+  .stack-row .l .ix { font-size: 11px; color: var(--ink-4); width: 22px; }
   .stack-row .l .nm { color: var(--ink); font-weight: 500; }
   .stack-row .v { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
   .stack-row .ok {
@@ -169,35 +215,36 @@
     display: grid; place-items: center;
     margin-left: 10px;
     flex-shrink: 0;
+    font-size: 10px;
   }
   .stack-row.missing {
-    background: repeating-linear-gradient(
-      135deg,
-      #fff 0px, #fff 6px,
-      #fafafa 6px, #fafafa 12px
-    );
+    background: repeating-linear-gradient(135deg, #fff 0px, #fff 6px, #fafafa 6px, #fafafa 12px);
     border-style: dashed;
     border-color: #d4d4d1;
   }
   .stack-row.missing .nm { color: var(--ink-3); font-style: italic; font-weight: 400; }
-  .stack-row.missing .v { color: var(--ink-4); font-family: 'Geist Mono', monospace; }
+  .stack-row.missing .v { color: var(--ink-4); }
   .stack-row.missing .ok {
     background: transparent;
     color: var(--ink-4);
     border: 1px dashed var(--ink-4);
   }
+  .stack-caption {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-4);
+    text-align: right;
+    margin-top: 2px;
+  }
 
-  /* ===== Form ===== */
+  /* ── Form ── */
   .form-card {
     border: 1px solid var(--line);
     border-radius: var(--radius);
     padding: 22px;
-    background: white;
+    background: var(--bg-soft);
     box-shadow: 0 1px 0 rgba(10,10,10,0.02);
   }
-  body[data-form="soft"] .form-card { background: var(--bg-soft); }
-  body[data-form="flat"] .form-card { border: none; padding: 0; box-shadow: none; }
-
   .form-card .title {
     font-weight: 600;
     color: var(--ink);
@@ -205,11 +252,7 @@
     margin: 0 0 4px;
     letter-spacing: -0.01em;
   }
-  .form-card .desc {
-    font-size: 14px;
-    color: var(--ink-3);
-    margin: 0 0 18px;
-  }
+  .form-card .desc { font-size: 14px; color: var(--ink-3); margin: 0 0 18px; }
 
   .field { display: block; margin-bottom: 12px; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
@@ -221,16 +264,8 @@
     margin-bottom: 6px;
     font-weight: 500;
   }
-  .field label .opt {
-    color: var(--ink-4);
-    font-weight: 400;
-    margin-left: 6px;
-    font-size: 12px;
-  }
-  .field label .req {
-    color: var(--brand);
-    margin-left: 4px;
-  }
+  .field label .opt { color: var(--ink-4); font-weight: 400; margin-left: 6px; font-size: 12px; }
+  .field label .req { color: var(--brand); margin-left: 4px; }
   .input, .select {
     width: 100%;
     height: 44px;
@@ -276,14 +311,13 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: background .15s, transform .05s, box-shadow .15s;
+    transition: background .15s, transform .05s;
     box-shadow: 0 1px 0 rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.12);
     font-family: 'Geist', sans-serif;
   }
   .submit:hover { background: var(--brand-ink); border-color: var(--brand-ink); }
   .submit:active { transform: translateY(1px); }
-  .submit svg { transition: transform .15s; }
-  .submit:hover svg { transform: translateX(2px); }
+  .submit:disabled { opacity: .6; cursor: wait; }
 
   .form-foot {
     font-size: 12.5px;
@@ -302,10 +336,21 @@
     border-radius: 999px;
     background: rgba(249,115,22,0.08);
     border: 1px solid rgba(249,115,22,0.18);
-    letter-spacing: 0.02em;
+  }
+  .form-error {
+    display: none;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #b91c1c;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    text-align: center;
   }
 
   .success {
+    display: none;
     border: 1px solid #bbf7d0;
     background: #f0fdf4;
     border-radius: var(--radius);
@@ -320,65 +365,34 @@
     display: grid; place-items: center;
     color: white;
   }
-  .success h3 {
-    font-size: 18px; font-weight: 600;
-    color: #14532d; margin: 0 0 4px; letter-spacing: -0.01em;
-  }
+  .success h3 { font-size: 18px; font-weight: 600; color: #14532d; margin: 0 0 4px; }
   .success p { margin: 0; font-size: 14px; color: #166534; }
-  .success .pos {
-    margin-top: 12px;
-    font-family: 'Geist Mono', monospace;
-    font-size: 12px;
-    color: #15803d;
-  }
+  .success .pos { margin-top: 12px; font-family: 'Geist Mono', monospace; font-size: 12px; color: #15803d; }
 
-  /* ===== Social-proof strip (right after form) ===== */
-  .proof {
+  /* ── Trust strip (under the form) ── */
+  .trust {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    margin: 20px 0 0;
-    padding: 14px 16px;
-    border-radius: var(--radius);
-    background: var(--bg-soft);
-    border: 1px solid var(--line);
+    gap: 8px;
+    margin: 16px 0 0;
     flex-wrap: wrap;
-    text-align: left;
   }
-  .proof .avatars { display: flex; }
-  .proof .avatars .a {
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    border: 2px solid var(--bg-soft);
-    margin-right: -8px;
-    display: grid; place-items: center;
-    font-size: 10px; color: white; font-weight: 600;
+  .trust .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: white;
     font-family: 'Geist Mono', monospace;
-  }
-  .proof .count-text {
-    font-size: 13.5px;
+    font-size: 11.5px;
     color: var(--ink-3);
-    line-height: 1.4;
   }
-  .proof .count-text b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
-  .proof .live {
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    color: #16a34a;
-    display: inline-flex; align-items: center; gap: 6px;
-    margin-left: auto;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .proof .live::before {
-    content: ""; width: 6px; height: 6px; border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
-  }
-  @media (max-width: 480px) { .proof .live { margin-left: 0; } }
+  .trust .chip svg { color: #16a34a; flex-shrink: 0; }
 
-  /* ===== Section blocks ===== */
+  /* ── Section blocks ── */
   section.block { padding: 64px 0 8px; }
   section.block h2 {
     font-size: 26px;
@@ -406,7 +420,7 @@
   }
   section.block p strong { color: var(--ink); font-weight: 600; }
 
-  /* The big quote that opens Problem */
+  /* The CFO question that opens Problem */
   .pull {
     margin: 4px 0 22px;
     padding: 0 0 0 4px;
@@ -418,16 +432,9 @@
     line-height: 1.25;
     letter-spacing: -0.02em;
     text-wrap: balance;
-    position: relative;
   }
-  .pull q {
-    quotes: "\201C" "\201D";
-  }
-  .pull q::before,
-  .pull q::after {
-    color: var(--ink-4);
-    font-weight: 400;
-  }
+  .pull q { quotes: "\201C" "\201D"; }
+  .pull q::before, .pull q::after { color: var(--ink-4); }
   .pull cite {
     display: block;
     margin-top: 12px;
@@ -435,7 +442,6 @@
     font-size: 12px;
     color: var(--ink-4);
     font-style: normal;
-    letter-spacing: 0;
   }
 
   /* Problem callouts */
@@ -469,7 +475,7 @@
   .callout b { display: block; color: var(--ink); font-weight: 600; font-size: 13.5px; }
   .callout span { color: var(--ink-3); font-size: 12.5px; line-height: 1.4; }
 
-  /* ===== Solution items - bigger cards ===== */
+  /* ── Solution cards ── */
   .solutions { display: grid; gap: 12px; margin: 22px 0 0; }
   .sol {
     display: grid;
@@ -498,13 +504,72 @@
   }
   .sol span { color: var(--ink-3); font-size: 14.5px; line-height: 1.55; }
 
-  /* ===== How it works - numbered steps ===== */
-  .steps {
-    margin: 22px 0 0;
-    display: grid;
-    gap: 0;
-    position: relative;
+  /* ── Who it's for band ── */
+  .icp-band {
+    margin: 56px 0 0;
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--brand);
+    border-radius: var(--radius);
+    background: var(--bg-soft);
   }
+  .icp-band .k {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .icp-band p { margin: 0; font-size: 15.5px; color: var(--ink-2); line-height: 1.6; }
+  .icp-band p strong { color: var(--ink); }
+
+  /* ── Roadmap ── */
+  .roadmap { display: grid; gap: 18px; margin: 22px 0 0; }
+  .rgroup {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: white;
+    padding: 16px 18px;
+  }
+  .rgroup .rhead {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+  }
+  .rgroup .rhead .rdot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .rgroup.now .rdot { background: #16a34a; box-shadow: 0 0 0 3px rgba(22,163,74,0.15); }
+  .rgroup.next .rdot { background: var(--brand); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+  .rgroup.later .rdot { background: var(--accent); box-shadow: 0 0 0 3px rgba(249,115,22,0.15); }
+  .rgroup .rhead .rwhen { margin-left: auto; color: var(--ink-4); letter-spacing: 0.02em; text-transform: none; }
+  .ritems { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ritems .rchip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--bg-soft);
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.35;
+  }
+  .rgroup.later .ritems .rchip { background: white; border-style: dashed; color: var(--ink-3); }
+  .roadmap-note {
+    font-size: 13px;
+    color: var(--ink-4);
+    margin-top: 4px;
+    font-family: 'Geist Mono', monospace;
+  }
+
+  /* ── Steps ── */
+  .steps { margin: 22px 0 0; display: grid; position: relative; }
   .step {
     display: grid;
     grid-template-columns: 36px 1fr;
@@ -529,7 +594,6 @@
     display: grid; place-items: center;
     font-family: 'Geist Mono', monospace;
     font-size: 13px;
-    font-weight: 500;
     position: relative;
     z-index: 1;
   }
@@ -539,16 +603,12 @@
     font-weight: 600;
     font-size: 15.5px;
     margin: 8px 0 2px;
-    letter-spacing: -0.005em;
   }
   .step span { color: var(--ink-3); font-size: 14px; line-height: 1.5; }
 
-  /* ===== FAQ ===== */
+  /* ── FAQ ── */
   .faq { margin-top: 12px; border-top: 1px solid var(--line); }
-  .faq details {
-    border-bottom: 1px solid var(--line);
-    padding: 16px 0;
-  }
+  .faq details { border-bottom: 1px solid var(--line); padding: 16px 0; }
   .faq summary {
     list-style: none;
     cursor: pointer;
@@ -557,14 +617,9 @@
     font-weight: 500;
     color: var(--ink);
     font-size: 15.5px;
-    letter-spacing: -0.005em;
   }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary .plus {
-    width: 18px; height: 18px;
-    position: relative;
-    flex-shrink: 0;
-  }
+  .faq summary .plus { width: 18px; height: 18px; position: relative; flex-shrink: 0; }
   .faq summary .plus::before,
   .faq summary .plus::after {
     content: ""; position: absolute;
@@ -581,7 +636,7 @@
     line-height: 1.6;
   }
 
-  /* ===== End CTA ===== */
+  /* ── End CTA ── */
   .end-cta {
     margin-top: 56px;
     padding: 32px 28px;
@@ -589,11 +644,6 @@
     background: var(--ink);
     color: white;
   }
-  body[data-darkcta="false"] .end-cta { background: var(--bg-soft); color: var(--ink); }
-  body[data-darkcta="false"] .end-cta p { color: var(--ink-3); }
-  body[data-darkcta="false"] .end-cta .btn { background: var(--ink); color: white; border-color: var(--ink); }
-  body[data-darkcta="false"] .end-cta .small { color: var(--ink-4); }
-
   .end-cta h3 {
     font-size: 26px;
     font-weight: 600;
@@ -618,7 +668,7 @@
   .end-cta .btn:hover { background: #f0f0f0; }
   .end-cta .small { color: rgba(255,255,255,0.5); font-size: 12.5px; margin-top: 14px; }
 
-  /* ===== Footer ===== */
+  /* ── Footer ── */
   footer.foot {
     display: flex; justify-content: space-between; align-items: center;
     margin-top: 48px;
@@ -634,7 +684,7 @@
   footer.foot a:hover { color: var(--ink); }
   footer.foot .right a:last-child { margin-right: 0; }
 
-  /* ===== Sticky mobile reserve-spot pill ===== */
+  /* ── Sticky mobile CTA ── */
   .sticky-cta {
     position: fixed;
     left: 16px; right: 16px;
@@ -666,31 +716,428 @@
     display: inline-flex; align-items: center; gap: 6px;
   }
   .sticky-cta.show { display: flex; }
-  @media (min-width: 720px) {
-    .sticky-cta.show { display: none; }
-  }
-
-  #app { min-height: 100vh; }
+  @media (min-width: 720px) { .sticky-cta.show { display: none; } }
 </style>
 </head>
-<body data-form="soft" data-darkcta="true">
+<body>
 
-<div id="app"></div>
+<div class="page" id="top">
+
+  <!-- ── Nav ── -->
+  <header class="nav">
+    <div class="brand">
+      <span class="brand-mark">S</span>
+      <span>SpendOps AI</span>
+    </div>
+    <span class="pill"><span class="dot"></span>waitlist open</span>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="eyebrow">llm cost attribution for ai startups</div>
+    <h1 class="headline">Your LLM bill is a <span class="accent">black box</span>.</h1>
+    <p class="sub">
+      SpendOps AI shows you <strong>what every feature, team, and customer costs</strong> across
+      OpenAI and Anthropic - with Slack alerts before budgets blow and a monthly PDF your
+      CFO actually reads. Read-only keys. No code changes. First chart in 10 minutes.
+    </p>
+
+    <!-- The missing layer -->
+    <div class="stack" aria-hidden="true">
+      <div class="stack-row">
+        <div class="l"><span class="ix">01</span><span class="nm">Total spend</span></div>
+        <div class="l"><span class="v">$31,520</span><span class="ok">✓</span></div>
+      </div>
+      <div class="stack-row">
+        <div class="l"><span class="ix">02</span><span class="nm">By model</span></div>
+        <div class="l"><span class="v">openai · anthropic</span><span class="ok">✓</span></div>
+      </div>
+      <div class="stack-row missing">
+        <div class="l"><span class="ix">03</span><span class="nm">By feature, team, or customer</span></div>
+        <div class="l"><span class="v">???</span><span class="ok">?</span></div>
+      </div>
+      <div class="stack-caption">← the layer your provider dashboard can't show you</div>
+    </div>
+
+    <!-- ── Waitlist form ── -->
+    <form id="reserve-form" class="form-card" novalidate>
+      <p class="title">Get early access</p>
+      <p class="desc">Waitlist members get in first - about two weeks before public launch - with founding-member perks.</p>
+
+      <div class="field">
+        <label for="email">Work email <span class="req">*</span></label>
+        <input id="email" name="email" type="email" required autocomplete="email"
+               class="input" placeholder="cto@yourstartup.com" />
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="provider">Which providers?<span class="opt">optional</span></label>
+          <select id="provider" name="provider" class="select">
+            <option value="">Select one…</option>
+            <option>OpenAI</option>
+            <option>Anthropic</option>
+            <option>Both</option>
+            <option>Multiple (incl. Gemini, open-source)</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="spend">Monthly LLM spend<span class="opt">optional</span></label>
+          <select id="spend" name="monthly_spend" class="select">
+            <option value="">Select one…</option>
+            <option>Under $5K</option>
+            <option>$5K – $20K</option>
+            <option>$20K – $80K</option>
+            <option>Over $80K</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="submit" id="submit-btn">
+        Join the waitlist
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+
+      <div class="form-error" id="form-error">
+        Something went wrong. Please try again, or email
+        <a href="mailto:hello@spendopsai.com">hello@spendopsai.com</a> and we'll add you by hand.
+      </div>
+
+      <div class="form-foot">
+        One email when early access opens. No spam, unsubscribe anytime.<br/>
+        <span class="accent-badge">▲ First 50 signups lock in founding-member perks</span>
+      </div>
+    </form>
+
+    <!-- Success state (hidden until submit) -->
+    <div class="success" id="success" role="status">
+      <div class="check">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3>You're on the list.</h3>
+      <p>We'll email you the moment early access opens - waitlist members get in first.</p>
+      <div class="pos">founding-member perks locked in</div>
+    </div>
+
+    <!-- Trust strip: verifiable architecture facts, not vanity numbers -->
+    <div class="trust" aria-label="security highlights">
+      <span class="chip">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        read-only keys
+      </span>
+      <span class="chip">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        never in your request path
+      </span>
+      <span class="chip">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        AES-256 encrypted
+      </span>
+    </div>
+  </section>
+
+  <!-- ── 01 · Problem ── -->
+  <section class="block">
+    <div class="h-num">01 / The problem</div>
+    <h2>You can answer "how much." You can't answer "on what."</h2>
+    <blockquote class="pull">
+      <q>The AI line is up again this month. What's actually driving it?</q>
+      <cite>- your CFO, at every month-end</cite>
+    </blockquote>
+    <p>
+      Provider dashboards stop at totals and per-model spend. The questions that decide pricing,
+      margins, and roadmap - <strong>which feature is burning money, which customer is unprofitable,
+      which team blew its budget</strong> - are unanswerable without hours in spreadsheets. So every
+      month-end turns into guesswork, and every overrun is discovered when the invoice lands.
+    </p>
+
+    <div class="callouts">
+      <div class="callout">
+        <div class="ico"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6l-12 12"/></svg></div>
+        <div>
+          <b>No real breakdown</b>
+          <span>Spend by model - never by feature, customer, or team.</span>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="ico"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6l-12 12"/></svg></div>
+        <div>
+          <b>Spreadsheet month-ends</b>
+          <span>Finance reports rebuilt by hand, every single month.</span>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="ico"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6l-12 12"/></svg></div>
+        <div>
+          <b>Surprise invoices</b>
+          <span>Spikes discovered when the bill arrives, not when they happen.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 02 · Solution ── -->
+  <section class="block">
+    <div class="h-num">02 / What you get</div>
+    <h2>Four things. Each one ends a monthly headache.</h2>
+
+    <div class="solutions">
+      <div class="sol">
+        <div class="s-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="13" width="3" height="5"/><rect x="12" y="9" width="3" height="9"/><rect x="17" y="5" width="3" height="13"/></svg></div>
+        <div>
+          <b>Know what every feature and customer costs</b>
+          <span>Tag rules map your API keys to features, teams, and customers - so "the OpenAI bill" becomes "chat costs 4× what search does." No SDK, no code changes. (True per-request customer attribution is on the roadmap below.)</span>
+        </div>
+      </div>
+      <div class="sol">
+        <div class="s-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+        <div>
+          <b>Catch spikes in Slack, not on the invoice</b>
+          <span>Daily statistical anomaly detection flags unusual spend per feature, model, or customer - and budget alerts fire at 80% and 100% of the limits you set. A month-end forecast shows where you'll land before you get there.</span>
+        </div>
+      </div>
+      <div class="sol">
+        <div class="s-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></div>
+        <div>
+          <b>A monthly report your CFO forwards</b>
+          <span>On the 1st of every month: spend by provider, model, feature, team, and customer, month-over-month, anomalies, and realized savings - as a board-ready PDF, emailed automatically.</span>
+        </div>
+      </div>
+      <div class="sol">
+        <div class="s-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div>
+          <b>Cut spend with receipts, not vibes</b>
+          <span>Savings recommendations - model swaps, prompt caching, batch processing - each with an estimated dollar amount per month, based on your actual usage.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ICP band: qualify the right visitor, politely disqualify the rest -->
+    <div class="icp-band">
+      <div class="k">Who it's for</div>
+      <p>
+        Built for <strong>CTOs and founders at AI-native startups spending $5K–$80K/month on LLM
+        APIs</strong>. If your CFO has ever asked where the AI spend goes - and you didn't have a
+        good answer - this is for you.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── 03 · How it works ── -->
+  <section class="block">
+    <div class="h-num">03 / How it works</div>
+    <h2>From signup to your first chart in 10 minutes.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <div>
+          <b>Connect a read-only Admin key</b>
+          <span>OpenAI or Anthropic. Encrypted before it's stored, never shown again, never in your request path - we pull billing data, your traffic never touches us.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <div>
+          <b>See 30 days of history, instantly</b>
+          <span>We backfill a month of cost and usage data in minutes. The numbers match your provider dashboard.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <div>
+          <b>Attribute spend with rules, not code</b>
+          <span>Point-and-click rules match your API key names to features, teams, and customers - preview the result before applying. Every dollar gets an owner.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <div>
+          <b>Set budgets and relax</b>
+          <span>Monthly limits per feature, customer, or provider. Slack and email alerts at 80% and 100% - plus a daily digest and the monthly CFO PDF, on autopilot.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 · Roadmap ── -->
+  <section class="block">
+    <div class="h-num">04 / Roadmap</div>
+    <h2>What ships at launch - and what's coming.</h2>
+    <p>
+      We'd rather show you the plan than oversell a beta. Everything under
+      "at launch" is built and working today; the rest is sequenced -
+      <strong>and waitlist feedback decides the order.</strong>
+    </p>
+
+    <div class="roadmap">
+      <div class="rgroup now">
+        <div class="rhead"><span class="rdot"></span>At launch<span class="rwhen">built &amp; working</span></div>
+        <div class="ritems">
+          <span class="rchip">Per-feature &amp; per-team attribution</span>
+          <span class="rchip">OpenAI + Anthropic in one view</span>
+          <span class="rchip">Cost Explorer with CSV export</span>
+          <span class="rchip">Daily anomaly alerts → Slack &amp; email</span>
+          <span class="rchip">Budgets with 80% / 100% alerts</span>
+          <span class="rchip">Savings recommendations with $ estimates</span>
+          <span class="rchip">Monthly CFO PDF report</span>
+          <span class="rchip">Month-end spend forecast</span>
+        </div>
+      </div>
+
+      <div class="rgroup next">
+        <div class="rhead"><span class="rdot"></span>Next<span class="rwhen">shortly after launch</span></div>
+        <div class="ritems">
+          <span class="rchip">Invoice reconciliation - our numbers vs. your bill</span>
+          <span class="rchip">Acknowledge &amp; resolve alerts inside Slack</span>
+          <span class="rchip">Free read-only seat for your CFO</span>
+        </div>
+      </div>
+
+      <div class="rgroup later">
+        <div class="rhead"><span class="rdot"></span>Planned<span class="rwhen">prioritized by your votes</span></div>
+        <div class="ritems">
+          <span class="rchip">Lightweight SDK for per-request, per-customer attribution</span>
+          <span class="rchip">Gross margin per customer - cost joined with your MRR</span>
+          <span class="rchip">Gemini cost ingestion</span>
+          <span class="rchip">Azure OpenAI &amp; Bedrock</span>
+          <span class="rchip">Hard budget caps - auto-pause keys at the limit</span>
+          <span class="rchip">SSO &amp; SOC 2 for enterprise</span>
+        </div>
+      </div>
+    </div>
+    <p class="roadmap-note">→ tell us what you need in the form above - early signups set the priority</p>
+  </section>
+
+  <!-- ── 05 · FAQ ── -->
+  <section class="block">
+    <div class="h-num">05 / Questions</div>
+    <h2>Common questions.</h2>
+    <div class="faq">
+      <details open>
+        <summary>When are you launching?<span class="plus"></span></summary>
+        <p>Early access opens in roughly four weeks. Waitlist members get in first - about two weeks before public launch.</p>
+      </details>
+      <details>
+        <summary>Do I need to install an SDK or change my code?<span class="plus"></span></summary>
+        <p>No. SpendOps pulls aggregate cost and usage data from your providers' Admin APIs on a schedule. No SDK, no proxy, no code changes, and zero added latency - we're never in your request path, so an outage on our side can't touch your product.</p>
+      </details>
+      <details>
+        <summary>What happens to my API key? Can you see our prompts?<span class="plus"></span></summary>
+        <p>You connect a read-only Admin key - not your production key. It's encrypted with AES-256 before it's stored, never returned to a browser, and never logged. The Admin APIs return token counts and dollar amounts, not content: we never see prompts, completions, or your users' data. Revoke the key at any time. SOC 2 is on our roadmap as we move upmarket.</p>
+      </details>
+      <details>
+        <summary>Can it stop runaway spend, or just report it?<span class="plus"></span></summary>
+        <p>At launch: alerts at 80% and 100% of every budget you set, in Slack and email the same day - so a runaway loop costs you hours, not a month. Hard caps that auto-pause a key at its limit are on the roadmap.</p>
+      </details>
+      <details>
+        <summary>Which providers do you support?<span class="plus"></span></summary>
+        <p>OpenAI and Anthropic at launch, normalized to USD in one view. Gemini cost ingestion is next on the roadmap, with Azure OpenAI and Bedrock to follow. Tell us your stack in the form above and we'll prioritize it.</p>
+      </details>
+      <details>
+        <summary>What will it cost?<span class="plus"></span></summary>
+        <p>Plans start at $299/month, and every plan includes everything - attribution, anomaly alerts, budgets, Slack, and the monthly CFO report. Tiers scale with the spend we track for you. There's a 14-day free trial with no credit card, and waitlist members get founding-member perks at launch.</p>
+      </details>
+      <details>
+        <summary>How is this different from Helicone, Langfuse, or Vantage?<span class="plus"></span></summary>
+        <p>Observability tools like Helicone and Langfuse are built for engineers debugging prompts and traces. Cloud-cost platforms like Vantage are built and priced for enterprises. SpendOps is finance-first at startup pricing: per-feature and per-customer dollar attribution, budgets, and a board-ready monthly report - the answers your CFO actually asks for.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ── End CTA ── -->
+  <div class="end-cta">
+    <h3>Stop guessing what your AI features <span class="accent">cost</span>.</h3>
+    <p>Join the waitlist and be first in when early access opens - founding-member perks included. No spam.</p>
+    <a href="#reserve-form" class="btn" id="end-cta-btn">
+      Join the waitlist
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <div class="small">Read-only keys · never in your request path · 14-day free trial at launch</div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="foot">
+    <div>© 2026 SpendOps AI - LLM cost attribution for AI startups</div>
+    <div class="right">
+      <a href="mailto:hello@spendopsai.com">contact</a>
+      <a href="#">privacy</a>
+      <a href="#">terms</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ── Sticky mobile CTA ── -->
+<button type="button" class="sticky-cta" id="sticky-cta">
+  <span>See where your LLM spend goes</span>
+  <span class="pill-btn">
+    Join
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </span>
+</button>
 
 <script>
-  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-    "brandColor": "#2563eb",
-    "showQuotes": false,
-    "darkCta": true,
-    "visual": "receipt",
-    "headlineStyle": "italic",
-    "formStyle": "soft",
-    "waitlistCount": 137
-  }/*EDITMODE-END*/;
-  window.__TWEAK_DEFAULTS__ = TWEAK_DEFAULTS;
+(function () {
+  var form = document.getElementById('reserve-form');
+  var success = document.getElementById('success');
+  var errorBox = document.getElementById('form-error');
+  var submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('email');
+    if (!email.checkValidity()) { email.reportValidity(); return; }
+
+    errorBox.style.display = 'none';
+    submitBtn.disabled = true;
+    submitBtn.firstChild.textContent = 'Joining… ';
+
+    fetch('https://formspree.io/f/xgoqloqd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        email: email.value,
+        provider: document.getElementById('provider').value,
+        monthly_spend: document.getElementById('spend').value
+      })
+    }).then(function (res) {
+      if (!res.ok) throw new Error('submit failed');
+      form.style.display = 'none';
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }).catch(function () {
+      errorBox.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.firstChild.textContent = 'Join the waitlist ';
+    });
+  });
+
+  function scrollToForm() {
+    var target = form.style.display === 'none' ? success : form;
+    var y = target.getBoundingClientRect().top + window.scrollY - 24;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    setTimeout(function () {
+      var email = document.getElementById('email');
+      if (email && form.style.display !== 'none') email.focus({ preventScroll: true });
+    }, 400);
+  }
+
+  document.getElementById('end-cta-btn').addEventListener('click', function (e) {
+    e.preventDefault();
+    scrollToForm();
+  });
+
+  var sticky = document.getElementById('sticky-cta');
+  sticky.addEventListener('click', scrollToForm);
+  function onScroll() {
+    var r = form.style.display === 'none' ? success.getBoundingClientRect() : form.getBoundingClientRect();
+    sticky.className = (r.bottom < 0 || window.scrollY > 700) ? 'sticky-cta show' : 'sticky-cta';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
 </script>
 
-<script type="text/babel" src="tweakspanel.jsx"></script>
-<script type="text/babel" src="app.jsx"></script>
 </body>
 </html>
